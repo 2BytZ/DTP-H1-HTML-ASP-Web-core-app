@@ -23,7 +23,14 @@ namespace DTP_HTML_ASP_Web_core_app.Controllers
         // GET: CourseController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            List<Course> courses = new List<Course>
+            {
+                new Course { Id = 1, Title = "Introduction to ASP.NET Core", Teacher = "John Doe", DurationInWeeks = 6 },
+                new Course { Id = 2, Title = "Advanced C# Programming", Teacher = "Jane Smith", DurationInWeeks = 8 },
+                new Course { Id = 3, Title = "Web Development with MVC", Teacher = "Mike Johnson", DurationInWeeks = 5 }
+            };
+            Course course = courses.FirstOrDefault(c => c.Id == id);
+            return View(course);
         }
 
         // GET: CourseController/Create
